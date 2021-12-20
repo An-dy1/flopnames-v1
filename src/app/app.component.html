@@ -1,0 +1,33 @@
+<h1>Flopnames</h1>
+<h2>And the winner is: {{ winner }}</h2>
+<div style="margin-bottom:30px; margin-top:30px">
+  <button (click)="selectTeam(0)">Red</button>
+  <button (click)="selectTeam(1)">Blue</button>
+  <br />
+  <p>
+    Current Team:
+    <!-- Could also set a binding on [class] and write css for .blue and .red, for example, but I think that means it would ahve to be hardcoded-->
+    <span [style]="currentTeamColor">{{ currentTeam }}</span>
+  </p>
+</div>
+
+<game-grid
+  [currentTeam]="currentTeam"
+  (thereIsAWinner)="logWinner($event)"
+></game-grid>
+
+<button (click)="toggleKey()" style="margin-top:10px">Toggle Key</button>
+
+<div [style]="keyState.style" class="keygrid">
+  <div class="{{ keyArray[0][0] }}">o</div>
+  <div class="{{ keyArray[0][1] }}"></div>
+  <div class="{{ keyArray[0][2] }}">o</div>
+
+  <div class="{{ keyArray[1][0] }}">x</div>
+  <div class="{{ keyArray[1][1] }}">o</div>
+  <div class="{{ keyArray[1][2] }}"></div>
+
+  <div class="{{ keyArray[2][0] }}"></div>
+  <div class="{{ keyArray[2][1] }}"></div>
+  <div class="{{ keyArray[2][2] }}">o</div>
+</div>
