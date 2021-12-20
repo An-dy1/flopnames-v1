@@ -50,7 +50,7 @@ export class GameService {
 
   checkForWinner() {
     if (
-      this.gridState.assassinSelected > 0 ||
+      this.gridState.assassinSelected ||
       this.gridState.redSelected > 1 ||
       this.gridState.blueSelected > 1
     ) {
